@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="lastCoffeeApp">
+<head>
+  <meta charset="utf-8">
+  <title>One last Coffee</title>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="js/controllers/coffeeCtrl.js"></script>
+</head>
+<body ng-controller="CoffeeCtrl">
+  <h1>One last coffee</h1>
+  <hr/>
+  <h3>How many coffee did you have today?</h3>
+  <select  ng-model="nbCoffee">
+    <option ng-repeat="nb in getNumber(max+1) track by $index" value="{{ $index }}">
+      {{ $index + " coffee" }}
+    </option>
+  </select>
+  <h3>When was the last one?</h3>
+  <select  ng-model="lastCoffeeTime.h">
+    <option ng-repeat="nb in getNumber(24) track by $index" value="{{ $index }}">
+      {{ ("0" + $index).slice(-2) }}
+    </option>
+  </select> :
+  <select  ng-model="lastCoffeeTime.m">
+    <option ng-repeat="nb in getNumber(4) track by $index" value="{{ $index/4 }}">
+      {{ ("0" + ($index * 15)).slice(-2)}}
+    </option>
+  </select>
+  <h3>When will you go to bed?</h3>
+  <select  ng-model="bedTime.h">
+    <option ng-repeat="nb in getNumber(24) track by $index" value="{{ $index }}">
+      {{ ("0" + $index).slice(-2) }}
+    </option>
+  </select> :
+  <select  ng-model="bedTime.m">
+    <option ng-repeat="nb in getNumber(4) track by $index" value="{{ $index /4 }}">
+      {{ ("0" + ($index * 15)).slice(-2)}}
+    </option>
+  </select>
+  <hr/>
+  <h2>{{getResult().title}}</h2>
+  <p>{{getResult().message}}</p>
+</body>
+</html>
