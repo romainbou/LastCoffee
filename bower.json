@@ -2,6 +2,11 @@
   "name": "LastCoffee",
   "version": "0.0.1",
   "dependencies": {
-    "angular": "1.2.x"
+    "angular": "1.2.9",
+    "font-awesome": "4.2.x",
+    "angular-bootstrap": "*",
+    "angular-strap": "~2.1.1",
+    "bootstrap": "~3.2.0",
+    "bootstrap-additions": "~0.2.3"
   }
 }

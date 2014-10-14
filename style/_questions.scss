@@ -1,0 +1,62 @@
+$circle-size: 260px;
+
+form.questions{
+  text-align: center;
+  div.circle-item{
+    display: inline-table;
+    vertical-align: middle;
+    text-align: center;
+    background-color: #494F60;
+    width: $circle-size;
+    height: $circle-size;
+    border-radius: $circle-size /2;
+    margin: $circle-size/20 $circle-size/8;
+    &:hover{
+      background-color: #494F60;
+    }
+    .circle{
+      display: table-cell;
+      vertical-align: middle;
+      p{
+        font-size: 2em;
+        padding: 0 1em;
+        span{
+          cursor: pointer;
+        }
+      }
+      >h3{
+        margin-top: 0;
+        margin-bottom: $circle-size/10;
+        text-transform: uppercase;
+        font-size: 1.3em;
+      }
+      >input{
+        margin:$circle-size/10 0;
+      }
+      >.form-group{
+        width: 7em;
+        margin: auto;
+        input{
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+div#mainApp{
+  span.drunk{
+    color: $green;
+  }
+  div.circle-item{
+    border: 2px solid $green;
+  }
+  &.forbidden{
+    span.drunk{
+      color: $red;
+    }
+    div.circle-item{
+      border: 2px solid $red;
+    }
+  }
+}

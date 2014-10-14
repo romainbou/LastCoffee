@@ -1,44 +1,59 @@
 <!DOCTYPE html>
-<html ng-app="lastCoffeeApp">
+<html>
 <head>
   <meta charset="utf-8">
   <title>One last Coffee</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="bower_components/bootstrap-additions/dist/bootstrap-additions.min.css">
+  <link rel="stylesheet" type="text/css" href="style/style.css">
   <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-strap/dist/angular-strap.min.js"></script>
+  <script src="bower_components/angular-strap/dist/angular-strap.tpl.min.js"></script>
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <script src="js/controllers/coffeeCtrl.js"></script>
 </head>
-<body ng-controller="CoffeeCtrl">
-  <h1>One last coffee</h1>
-  <hr/>
-  <h3>How many coffee did you have today?</h3>
-  <select  ng-model="nbCoffee">
-    <option ng-repeat="nb in getNumber(max+1) track by $index" value="{{ $index }}">
-      {{ $index + " coffee" }}
-    </option>
-  </select>
-  <h3>When was the last one?</h3>
-  <select  ng-model="lastCoffeeTime.h">
-    <option ng-repeat="nb in getNumber(24) track by $index" value="{{ $index }}">
-      {{ ("0" + $index).slice(-2) }}
-    </option>
-  </select> :
-  <select  ng-model="lastCoffeeTime.m">
-    <option ng-repeat="nb in getNumber(4) track by $index" value="{{ $index/4 }}">
-      {{ ("0" + ($index * 15)).slice(-2)}}
-    </option>
-  </select>
-  <h3>When will you go to bed?</h3>
-  <select  ng-model="bedTime.h">
-    <option ng-repeat="nb in getNumber(24) track by $index" value="{{ $index }}">
-      {{ ("0" + $index).slice(-2) }}
-    </option>
-  </select> :
-  <select  ng-model="bedTime.m">
-    <option ng-repeat="nb in getNumber(4) track by $index" value="{{ $index /4 }}">
-      {{ ("0" + ($index * 15)).slice(-2)}}
-    </option>
-  </select>
-  <hr/>
-  <h2>{{getResult().title}}</h2>
-  <p>{{getResult().message}}</p>
+<body ng-app="lastCoffeeApp">
+  <div id="mainApp" ng-controller="CoffeeCtrl" ng-class="{forbidden: forbidden}">
+    <header class="title">
+      <h1>Can I drink a coffe?</h1>
+    </header>
+    <form class="questions">
+      <div class="circle-item big">
+        <div class="circle">
+          <h3>{{ nbCoffee }} Coffee<br>already drunk</h3>
+          <p>
+            <span class="coffee0" ng-click="changeNbCoffee(0)">
+              <i class="fa fa-remove"></i>
+            </span>
+            <span ng-repeat="nb in getNumber(max) track by $index" ng-class="{drunk: nbCoffee >= ($index+1)}" ng-click="changeNbCoffee($index+1)">
+              <i class="fa fa-coffee"></i>
+            </span>
+          </p>
+        </div>
+      </div>
+      <div class="circle-item big">
+        <div class="circle">
+          <h3>last coffee time</h3>
+           <div class="form-group" ng-class="{'has-error': timepickerForm.time2.$invalid}">
+            <input type="text" class="form-control" size="5" ng-model="lastCoffeeTime" data-time-format="HH:mm" data-time-type="number" data-length="4" name="lastCoffeeTime" pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]" data-minute-step="15" bs-timepicker>
+          </div>
+        </div>
+      </div>
+      <div class="circle-item big">
+        <div class="circle">
+          <h3>bed time</h3>
+          <div class="form-group" ng-class="{'has-error': timepickerForm.time2.$invalid}">
+            <input type="text" class="form-control" size="5" ng-model="bedTime" data-time-format="HH:mm" data-time-type="number" data-length="4" data-minute-step="15" name="bedTime" pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]" bs-timepicker>
+          </div>
+        </div>
+      </div>
+    </form>
+    <div class="result">
+      <h2>{{getResult().title}}</h2>
+      <p>{{getResult().message}}</p>
+    </div>
+  </div>
 </body>
 </html>

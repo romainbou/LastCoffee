@@ -1,0 +1,74 @@
+html, body {
+  display: block;
+  margin: 0;
+  padding: 0;
+  background-color: #52596b;
+  color: white;
+  font-family: 'Open Sans', sans-serif; }
+
+div#mainApp header.title {
+  margin: 0;
+  padding: 3% 0;
+  width: 100%;
+  display: block;
+  text-align: center; }
+  div#mainApp header.title h1 {
+    width: 400px;
+    color: #838ba0;
+    background-color: #474d5d;
+    margin: auto;
+    padding: .4em;
+    border: 1px solid #424857;
+    border-radius: 5px;
+    cursor: pointer; }
+div#mainApp form.questions, div#mainApp div.result {
+  width: 80%;
+  margin: auto; }
+
+.clearfix {
+  float: none;
+  clear: both;
+  border-width: 0; }
+
+form.questions {
+  text-align: center; }
+  form.questions div.circle-item {
+    display: inline-table;
+    vertical-align: middle;
+    text-align: center;
+    background-color: #494F60;
+    width: 260px;
+    height: 260px;
+    border-radius: 130px;
+    margin: 13px 32.5px; }
+    form.questions div.circle-item:hover {
+      background-color: #494F60; }
+    form.questions div.circle-item .circle {
+      display: table-cell;
+      vertical-align: middle; }
+      form.questions div.circle-item .circle p {
+        font-size: 2em;
+        padding: 0 1em; }
+        form.questions div.circle-item .circle p span {
+          cursor: pointer; }
+      form.questions div.circle-item .circle > h3 {
+        margin-top: 0;
+        margin-bottom: 26px;
+        text-transform: uppercase;
+        font-size: 1.3em; }
+      form.questions div.circle-item .circle > input {
+        margin: 26px 0; }
+      form.questions div.circle-item .circle > .form-group {
+        width: 7em;
+        margin: auto; }
+        form.questions div.circle-item .circle > .form-group input {
+          text-align: center; }
+
+div#mainApp span.drunk {
+  color: #36e2be; }
+div#mainApp div.circle-item {
+  border: 2px solid #36e2be; }
+div#mainApp.forbidden span.drunk {
+  color: #fd6e6e; }
+div#mainApp.forbidden div.circle-item {
+  border: 2px solid #fd6e6e; }
