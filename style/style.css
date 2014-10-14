@@ -4,7 +4,8 @@ html, body {
   padding: 0;
   background-color: #52596b;
   color: white;
-  font-family: 'Open Sans', sans-serif; }
+  font-family: 'Open Sans', sans-serif;
+  padding-bottom: 60px; }
 
 div#mainApp header.title {
   margin: 0;
@@ -14,21 +15,13 @@ div#mainApp header.title {
   text-align: center; }
   div#mainApp header.title h1 {
     width: 400px;
-    color: #838ba0;
+    color: #dadce2;
     background-color: #474d5d;
     margin: auto;
     padding: .4em;
     border: 1px solid #424857;
     border-radius: 5px;
     cursor: pointer; }
-div#mainApp form.questions, div#mainApp div.result {
-  width: 80%;
-  margin: auto; }
-
-.clearfix {
-  float: none;
-  clear: both;
-  border-width: 0; }
 
 form.questions {
   text-align: center; }
@@ -72,3 +65,25 @@ div#mainApp.forbidden span.drunk {
   color: #fd6e6e; }
 div#mainApp.forbidden div.circle-item {
   border: 2px solid #fd6e6e; }
+
+div.result {
+  position: fixed;
+  width: 500px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background-color: #474d5d;
+  border: 2px solid #424857;
+  opacity: .9;
+  border-bottom-width: 0;
+  padding: 0.2em 1em;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px; }
+  div.result h2 {
+    text-align: center; }
+
+div#mainApp div.result {
+  border-color: #36e2be; }
+div#mainApp.forbidden div.result {
+  border-color: #fd6e6e; }

@@ -11,6 +11,7 @@ html, body{
   background-color: $bg;
   color: white;
   font-family: 'Open Sans', sans-serif;
+  padding-bottom: 60px;
 }
 
 div#mainApp{
@@ -22,7 +23,7 @@ div#mainApp{
     text-align: center; 
     h1{
       width: 400px;
-      color: lighten($bg, 20%);
+      color: lighten($bg, 50%);
       background-color: darken(#494F60, 1%);
       margin: auto;
       padding: .4em;
@@ -31,17 +32,7 @@ div#mainApp{
       cursor: pointer;
     }
   }
-
-  form.questions, div.result{
-    width: 80%;
-    margin: auto;
-  }
-}
-
-.clearfix {
-    float: none;
-    clear: both;
-    border-width: 0;
 }
 
 @import "questions";
+@import "result";
