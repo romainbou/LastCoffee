@@ -1,0 +1,37 @@
+var data = [
+  {
+    "title": "Too Many",
+    "conditionCoffee":[{"val":7, "ie" : "excl"}, null],
+    "conditionSleep":[null, null],
+    "state": "forbidden",
+    "message": "You already drunk too many cups today. The benefits of coffee on your health decrease after the 6th cup."
+  },
+  {
+    "title": "Too Late",
+    "conditionCoffee":[null, null],
+    "conditionSleep":[null, {"val":5, "ie" : "excl"}],
+    "state": "forbidden",
+    "message": "It's not advised to drink coffee 5 hours or less before going to bed."
+  },
+  {
+    "title": "Okayish...",
+    "conditionCoffee":[{"val":6, "ie" : "incl"}, {"val":7, "ie" : "incl"}],
+    "conditionSleep":[{"val":6, "ie" : "excl"}, null],
+    "state": "okayish",
+    "message": "Be careful, the benefits of coffee on your health decrease after the 6th cup."
+  },
+  {
+    "title": "Okayish...",
+    "conditionCoffee":[null, {"val":7, "ie" : "incl"}],
+    "conditionSleep":[null, {"val":6, "ie" : "incl"}],
+    "state": "okayish",
+    "message": "Be careful, you will sleep soon."
+  },
+  {
+    "title": "Yes you can!",
+    "conditionCoffee":[null, null],
+    "conditionSleep":[null, null],
+    "state": "ok",
+    "message": ""
+  }
+]
