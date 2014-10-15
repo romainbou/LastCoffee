@@ -65,6 +65,14 @@ div#mainApp{
   div.circle-item{
     border: 2px solid $green;
   }
+  &.okayish{
+    span.drunk{
+      color: $orange;
+    }
+    div.circle-item{
+      border: 2px solid $orange;
+    }
+  }
   &.forbidden{
     span.drunk{
       color: $red;

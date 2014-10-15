@@ -10,13 +10,13 @@ var lastCoffeeApp = angular.module('lastCoffeeApp', ['LocalStorageModule', 'mgcr
 
 lastCoffeeApp.config(function (localStorageServiceProvider) {
   localStorageServiceProvider
-    .setPrefix('ls');
+    .setPrefix('lastCoffeeApp');
 });
 
 lastCoffeeApp.controller('CoffeeCtrl', ['$scope', '$http', 'localStorageService',
   function($scope, $http, $ls) {
     $scope.max = 9;
-    $scope.forbidden = false;
+    $scope.state = "ok";
     //save values in the LocalStorage
     $ls.bind($scope, 'lastCoffeeTime');
     $ls.bind($scope, 'bedTime');
@@ -42,31 +42,35 @@ lastCoffeeApp.controller('CoffeeCtrl', ['$scope', '$http', 'localStorageService'
     }
     $scope.drinkCoffee = function(){
       $scope.nbCoffee ++;
-      var d = new Date();
-      var m = (Math.round(d.getMinutes()/15))/4;
-      var h = d.getHours();
       $scope.lastCoffeeTime = getCurrentTime();
     }
-    $scope.getStillWakeTime = function(){
+    var getStillAwakeTime = function(){
       return ((($scope.bedTime / 3600000)+1) - (($scope.lastCoffeeTime / 3600000)+1)).mod(24);
     }
     $http.get('data/result.json').success(function(data) {
       $scope.results = data;
       $scope.getResult = function(){
-        var stillWake = $scope.getStillWakeTime();
-        if($scope.nbCoffee>7){
-          $scope.forbidden = true;
-          return $scope.results.toomany;
-        }else if(stillWake<5){
-          $scope.forbidden = true;
-          return $scope.results.toolate;
-        }else if($scope.nbCoffe>5 && $scope.nbCoffe<8 && stillWake>6){
-          $scope.forbidden = true;
-          return $scope.results.okayish;
-        }else{
-          $scope.forbidden = false;
-          return $scope.results.ok;
+        var stillAwakeTime =  getStillAwakeTime();
+        var match = false, i = 0, size = data.length;
+        var result, conditionCoffee, conditionSleep;
+        while(i<size && !match){
+          result = data[i];
+          conditionCoffee = result.conditionCoffee; 
+          conditionSleep = result.conditionSleep;
+          if(conditionCoffee[0] === null || (conditionCoffee[0].ie === "incl" && $scope.nbCoffee >= conditionCoffee[0].val) || (conditionCoffee[0].ie === "excl" && $scope.nbCoffee > conditionCoffee[0].val)){
+            if(conditionCoffee[1] === null || (conditionCoffee[1].ie === "incl" && $scope.nbCoffee <= conditionCoffee[1].val) || (conditionCoffee[1].ie === "excl" && $scope.nbCoffee < conditionCoffee[1].val)){
+              if(conditionSleep[0] === null || (conditionSleep[0].ie === "incl" && stillAwakeTime >= conditionSleep[0].val) || (conditionSleep[0].ie === "excl" && stillAwakeTime > conditionSleep[0].val)){
+                if(conditionSleep[1] === null || (conditionSleep[1].ie === "incl" && stillAwakeTime <= conditionSleep[1].val) || (conditionSleep[1].ie === "excl" && stillAwakeTime < conditionSleep[1].val)){
+                  match = true;
+                }
+              }
+            }
+          }
+          i++;
         }
+        console.log(result);
+        $scope.state = result.state;
+        return result;
       }
     });
   }

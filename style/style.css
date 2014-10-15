@@ -79,6 +79,10 @@ div#mainApp span.drunk {
   color: #36e2be; }
 div#mainApp div.circle-item {
   border: 2px solid #36e2be; }
+div#mainApp.okayish span.drunk {
+  color: #ffac79; }
+div#mainApp.okayish div.circle-item {
+  border: 2px solid #ffac79; }
 div#mainApp.forbidden span.drunk {
   color: #fd6e6e; }
 div#mainApp.forbidden div.circle-item {
@@ -122,6 +126,8 @@ div.result {
 
 div#mainApp div.result {
   border-color: #36e2be; }
+div#mainApp.okayish div.result {
+  border-color: #ffac79; }
 div#mainApp.forbidden div.result {
   border-color: #fd6e6e; }
 div#mainApp.forbidden button.drink-one {

@@ -41,6 +41,11 @@ div#mainApp{
   div.result{
     border-color: $green;
   }
+  &.okayish{
+    div.result{
+      border-color: $orange;
+    }
+  }
   &.forbidden{
     div.result{
       border-color: $red;
