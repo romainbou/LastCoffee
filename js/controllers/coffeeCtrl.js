@@ -6,15 +6,34 @@ Number.prototype.mod = function(n) {
     return ((this%n)+n)%n; 
 };
 
-var lastCoffeeApp = angular.module('lastCoffeeApp', ['mgcrea.ngStrap']);
+var lastCoffeeApp = angular.module('lastCoffeeApp', ['LocalStorageModule', 'mgcrea.ngStrap']);
 
-lastCoffeeApp.controller('CoffeeCtrl', ['$scope', '$http',
-  function($scope, $http) {
+lastCoffeeApp.config(function (localStorageServiceProvider) {
+  localStorageServiceProvider
+    .setPrefix('ls');
+});
+
+lastCoffeeApp.controller('CoffeeCtrl', ['$scope', '$http', 'localStorageService',
+  function($scope, $http, $ls) {
     $scope.max = 9;
-    $scope.nbCoffee = 2;
-    $scope.lastCoffeeTime = 36000000;
-    $scope.bedTime = 75600000;
     $scope.forbidden = false;
+    //save values in the LocalStorage
+    $ls.bind($scope, 'lastCoffeeTime');
+    $ls.bind($scope, 'bedTime');
+    $ls.bind($scope, 'nbCoffee');
+    
+    var getCurrentTime = function(){
+      var d = new Date();
+      var m = (Math.round(d.getMinutes()/15))/4;
+      var h = d.getHours();
+      return (m+h-1)*3600000;
+    }
+
+    //Default values
+    $scope.nbCoffee = $ls.get('nbCoffee') ||  0;
+    $scope.lastCoffeeTime = $ls.get('lastCoffeeTime') ||  getCurrentTime();
+    $scope.bedTime = $ls.get('bedTime') || 75600000;
+    
     $scope.changeNbCoffee = function(nb){
       $scope.nbCoffee = nb;
     }
@@ -26,7 +45,7 @@ lastCoffeeApp.controller('CoffeeCtrl', ['$scope', '$http',
       var d = new Date();
       var m = (Math.round(d.getMinutes()/15))/4;
       var h = d.getHours();
-      $scope.lastCoffeeTime = (m+h-1)*3600000;
+      $scope.lastCoffeeTime = getCurrentTime();
     }
     $scope.getStillWakeTime = function(){
       return ((($scope.bedTime / 3600000)+1) - (($scope.lastCoffeeTime / 3600000)+1)).mod(24);

@@ -2,6 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
   <title>One last Coffee</title>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
@@ -11,13 +12,13 @@
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-strap/dist/angular-strap.min.js"></script>
   <script src="bower_components/angular-strap/dist/angular-strap.tpl.min.js"></script>
-  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/angular-local-storage/dist/angular-local-storage.min.js"></script>
   <script src="js/controllers/coffeeCtrl.js"></script>
 </head>
 <body ng-app="lastCoffeeApp">
   <div id="mainApp" ng-controller="CoffeeCtrl" ng-class="{forbidden: forbidden}">
     <header class="title">
-      <h1>Can I drink a coffe?</h1>
+      <h1>Can I drink a coffee?</h1>
     </header>
     <form class="questions">
       <div class="circle-item big">

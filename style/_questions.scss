@@ -1,4 +1,5 @@
 $circle-size: 260px;
+$little-circle-size : 160px;
 
 form.questions{
   text-align: center;
@@ -6,13 +7,19 @@ form.questions{
     display: inline-table;
     vertical-align: middle;
     text-align: center;
-    background-color: #494F60;
+    background-color: $blue;
     width: $circle-size;
     height: $circle-size;
     border-radius: $circle-size /2;
     margin: $circle-size/20 $circle-size/8;
+    @media (max-width: $break-small) {
+      width: $little-circle-size;
+      height: $little-circle-size;
+      border-radius: $little-circle-size /2;
+      margin: $little-circle-size/20 $little-circle-size/8;
+    }
     &:hover{
-      background-color: #494F60;
+      background-color: $blue;
     }
     .circle{
       display: table-cell;
@@ -20,6 +27,9 @@ form.questions{
       p{
         font-size: 2em;
         padding: 0 1em;
+        @media (max-width: $break-small) {
+          font-size: 1.2em;
+        }
         span{
           cursor: pointer;
         }
@@ -29,6 +39,10 @@ form.questions{
         margin-bottom: $circle-size/10;
         text-transform: uppercase;
         font-size: 1.3em;
+        @media (max-width: $break-small) {
+          margin-bottom: $little-circle-size/10;
+          font-size: 1em;
+        }
       }
       >input{
         margin:$circle-size/10 0;

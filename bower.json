@@ -7,6 +7,7 @@
     "angular-bootstrap": "*",
     "angular-strap": "~2.1.1",
     "bootstrap": "~3.2.0",
-    "bootstrap-additions": "~0.2.3"
+    "bootstrap-additions": "~0.2.3",
+    "angular-local-storage": "~0.1.3"
   }
 }

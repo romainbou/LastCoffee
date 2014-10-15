@@ -2,6 +2,8 @@ $green: #36E2BE;
 $orange: #FFAC79;
 $red: #FD6E6E;
 $bg: #52596B;
+$blue:#494F60;
+$break-small: 670px;
 
 
 html, body{
@@ -14,24 +16,7 @@ html, body{
   padding-bottom: 60px;
 }
 
-div#mainApp{
-  header.title{
-    margin: 0;
-    padding: 3% 0;
-    width: 100%;
-    display: block;
-    text-align: center; 
-    h1{
-      width: 450px;
-      color: lighten($bg, 50%);
-      background-color: darken(#494F60, 1%);
-      margin: auto;
-      padding: .4em;
-      border: 1px solid darken(#494F60, 3%);
-      border-radius: 5px;
-    }
-  }
-}
 
+@import "header";
 @import "questions";
 @import "result";
