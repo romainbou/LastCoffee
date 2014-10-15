@@ -14,14 +14,13 @@ div#mainApp header.title {
   display: block;
   text-align: center; }
   div#mainApp header.title h1 {
-    width: 400px;
+    width: 450px;
     color: #dadce2;
     background-color: #474d5d;
     margin: auto;
     padding: .4em;
     border: 1px solid #424857;
-    border-radius: 5px;
-    cursor: pointer; }
+    border-radius: 5px; }
 
 form.questions {
   text-align: center; }
@@ -82,8 +81,23 @@ div.result {
   border-top-right-radius: 5px; }
   div.result h2 {
     text-align: center; }
+  div.result button.drink-one {
+    background-color: #778098;
+    color: #ebecf0;
+    text-align: center;
+    display: block;
+    box-shadow: none;
+    border: none;
+    font-size: 1.3em;
+    border-radius: 3px;
+    padding: .2em .8em;
+    margin: 1em auto .4em;
+    outline-width: 0;
+    border: 1px solid #454a5a; }
 
 div#mainApp div.result {
   border-color: #36e2be; }
 div#mainApp.forbidden div.result {
   border-color: #fd6e6e; }
+div#mainApp.forbidden button.drink-one {
+  display: none; }

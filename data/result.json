@@ -12,7 +12,7 @@
     "message" : "If you drank 6 or 7 cups of coffee and the last one was more than 6 hours before you plan to go to sleep or if you drank 5 cups of coffee or less and the last one was 5 hours or more before you plan to go to sleep."
   },
   "ok": {
-    "title": "Ok",
-    "message" : "In any other cases."
+    "title": "Yes you can!",
+    "message" : ""
   }
 }

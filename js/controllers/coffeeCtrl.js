@@ -11,15 +11,22 @@ var lastCoffeeApp = angular.module('lastCoffeeApp', ['mgcrea.ngStrap']);
 lastCoffeeApp.controller('CoffeeCtrl', ['$scope', '$http',
   function($scope, $http) {
     $scope.max = 9;
-    $scope.nbCoffee = 0;
+    $scope.nbCoffee = 2;
     $scope.lastCoffeeTime = 36000000;
-    $scope.bedTime = 36000000;
+    $scope.bedTime = 75600000;
     $scope.forbidden = false;
     $scope.changeNbCoffee = function(nb){
       $scope.nbCoffee = nb;
     }
     $scope.getNumber = function(num) {
-        return new Array(num);
+      return new Array(num);
+    }
+    $scope.drinkCoffee = function(){
+      $scope.nbCoffee ++;
+      var d = new Date();
+      var m = (Math.round(d.getMinutes()/15))/4;
+      var h = d.getHours();
+      $scope.lastCoffeeTime = (m+h-1)*3600000;
     }
     $scope.getStillWakeTime = function(){
       return ((($scope.bedTime / 3600000)+1) - (($scope.lastCoffeeTime / 3600000)+1)).mod(24);

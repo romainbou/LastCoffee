@@ -22,14 +22,13 @@ div#mainApp{
     display: block;
     text-align: center; 
     h1{
-      width: 400px;
+      width: 450px;
       color: lighten($bg, 50%);
       background-color: darken(#494F60, 1%);
       margin: auto;
       padding: .4em;
       border: 1px solid darken(#494F60, 3%);
       border-radius: 5px;
-      cursor: pointer;
     }
   }
 }
