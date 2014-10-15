@@ -1,5 +1,5 @@
 $circle-size: 260px;
-$little-circle-size : 160px;
+$little-circle-size : 145px;
 
 form.questions{
   text-align: center;
@@ -11,12 +11,12 @@ form.questions{
     width: $circle-size;
     height: $circle-size;
     border-radius: $circle-size /2;
-    margin: $circle-size/20 $circle-size/8;
+    margin: $circle-size/20;
     @media (max-width: $break-small) {
       width: $little-circle-size;
       height: $little-circle-size;
       border-radius: $little-circle-size /2;
-      margin: $little-circle-size/20 $little-circle-size/8;
+      margin: $little-circle-size/25 ;
     }
     &:hover{
       background-color: $blue;
@@ -41,16 +41,14 @@ form.questions{
         font-size: 1.3em;
         @media (max-width: $break-small) {
           margin-bottom: $little-circle-size/10;
-          font-size: 1em;
+          font-size: .9em;
         }
-      }
-      >input{
-        margin:$circle-size/10 0;
       }
       >.form-group{
         width: 7em;
         margin: auto;
         input{
+          cursor: pointer;
           text-align: center;
         }
       }

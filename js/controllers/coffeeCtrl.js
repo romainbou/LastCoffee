@@ -18,7 +18,8 @@ lastCoffeeApp.controller('CoffeeCtrl', ['$scope', '$http', 'localStorageService'
     $scope.max = 9;
     $scope.state = "ok";
     $scope.minuteStep = 15;
-    //save values in the LocalStorage
+    
+    //sync values with the LocalStorage
     $ls.bind($scope, 'lastCoffeeTime');
     $ls.bind($scope, 'bedTime');
     $ls.bind($scope, 'nbCoffee');
@@ -30,7 +31,7 @@ lastCoffeeApp.controller('CoffeeCtrl', ['$scope', '$http', 'localStorageService'
       return (m+h-1)*3600000;
     }
 
-    //Default values
+    //initialize with past values if exist or default values
     $scope.nbCoffee = $ls.get('nbCoffee') ||  0;
     $scope.lastCoffeeTime = $ls.get('lastCoffeeTime') ||  getCurrentTime();
     $scope.bedTime = $ls.get('bedTime') || 75600000;
@@ -58,14 +59,13 @@ lastCoffeeApp.controller('CoffeeCtrl', ['$scope', '$http', 'localStorageService'
           result = data[i];
           conditionCoffee = result.conditionCoffee; 
           conditionSleep = result.conditionSleep;
-          if(conditionCoffee[0] === null || (conditionCoffee[0].ie === "incl" && $scope.nbCoffee >= conditionCoffee[0].val) || (conditionCoffee[0].ie === "excl" && $scope.nbCoffee > conditionCoffee[0].val)){
-            if(conditionCoffee[1] === null || (conditionCoffee[1].ie === "incl" && $scope.nbCoffee <= conditionCoffee[1].val) || (conditionCoffee[1].ie === "excl" && $scope.nbCoffee < conditionCoffee[1].val)){
-              if(conditionSleep[0] === null || (conditionSleep[0].ie === "incl" && stillAwakeTime >= conditionSleep[0].val) || (conditionSleep[0].ie === "excl" && stillAwakeTime > conditionSleep[0].val)){
-                if(conditionSleep[1] === null || (conditionSleep[1].ie === "incl" && stillAwakeTime <= conditionSleep[1].val) || (conditionSleep[1].ie === "excl" && stillAwakeTime < conditionSleep[1].val)){
-                  match = true;
-                }
-              }
-            }
+          //conditionCoffee == [{"val":7, "ie" : "excl"}, null] => test if($scope.nbCoffee ∈  ]7,+∞[ )
+          //conditionCoffee == [null, {"val":7, "ie" : "incl"}] => test if($scope.nbCoffee ∈  ]-∞,7] )
+          if((conditionCoffee[0] === null || (conditionCoffee[0].ie === "incl" && $scope.nbCoffee >= conditionCoffee[0].val) || (conditionCoffee[0].ie === "excl" && $scope.nbCoffee > conditionCoffee[0].val))
+            &&(conditionCoffee[1] === null || (conditionCoffee[1].ie === "incl" && $scope.nbCoffee <= conditionCoffee[1].val) || (conditionCoffee[1].ie === "excl" && $scope.nbCoffee < conditionCoffee[1].val))
+            &&(conditionSleep[0] === null || (conditionSleep[0].ie === "incl" && stillAwakeTime >= conditionSleep[0].val) || (conditionSleep[0].ie === "excl" && stillAwakeTime > conditionSleep[0].val))
+            &&(conditionSleep[1] === null || (conditionSleep[1].ie === "incl" && stillAwakeTime <= conditionSleep[1].val) || (conditionSleep[1].ie === "excl" && stillAwakeTime < conditionSleep[1].val))){
+              match = true;
           }
           i++;
         }

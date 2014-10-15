@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
-  <title>One last Coffee</title>
+  <title>One last Coffee?</title>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -17,9 +17,11 @@
 </head>
 <body ng-app="lastCoffeeApp">
   <div id="mainApp" ng-controller="CoffeeCtrl" class="{{state}}">
+    
     <header class="title">
       <h1>Can I drink a coffee?</h1>
     </header>
+    
     <form class="questions">
       <div class="circle-item big">
         <div class="circle">
@@ -34,6 +36,7 @@
           </p>
         </div>
       </div>
+      
       <div class="circle-item big">
         <div class="circle">
           <h3>last coffee time</h3>
@@ -42,6 +45,7 @@
           </div>
         </div>
       </div>
+      
       <div class="circle-item big">
         <div class="circle">
           <h3>bed time</h3>
@@ -51,11 +55,13 @@
         </div>
       </div>
     </form>
+    
     <div class="result">
       <h2>{{getResult().title}}</h2>
       <p>{{getResult().message}}</p>
-      <button class="drink-one" ng-click="drinkCoffee()">I drunk it</button>
+      <button class="drink-one" ng-click="drinkCoffee()">I drank</button>
     </div>
+  
   </div>
 </body>
 </html>
