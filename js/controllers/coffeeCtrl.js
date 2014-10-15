@@ -17,6 +17,7 @@ lastCoffeeApp.controller('CoffeeCtrl', ['$scope', '$http', 'localStorageService'
   function($scope, $http, $ls) {
     $scope.max = 9;
     $scope.state = "ok";
+    $scope.minuteStep = 15;
     //save values in the LocalStorage
     $ls.bind($scope, 'lastCoffeeTime');
     $ls.bind($scope, 'bedTime');
@@ -24,7 +25,7 @@ lastCoffeeApp.controller('CoffeeCtrl', ['$scope', '$http', 'localStorageService'
     
     var getCurrentTime = function(){
       var d = new Date();
-      var m = (Math.round(d.getMinutes()/15))/4;
+      var m = (Math.round(d.getMinutes()/$scope.minuteStep))/(60/$scope.minuteStep);
       var h = d.getHours();
       return (m+h-1)*3600000;
     }
@@ -68,7 +69,6 @@ lastCoffeeApp.controller('CoffeeCtrl', ['$scope', '$http', 'localStorageService'
           }
           i++;
         }
-        console.log(result);
         $scope.state = result.state;
         return result;
       }
