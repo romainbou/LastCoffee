@@ -1,0 +1,46 @@
+div.result{
+  position: fixed;
+  width: 500px;
+  bottom:0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background-color: darken(#494F60, 1%);
+  border: 2px solid darken(#494F60, 3%);
+  opacity: .9;
+  border-bottom-width: 0;
+  padding: 0.2em 1em;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  h2{
+    text-align: center;
+  }
+  button.drink-one{
+    background-color: lighten(#494F60, 20%);
+    color: lighten(#494F60, 60%);
+    text-align: center;
+    display: block;
+    box-shadow: none;
+    border: none;
+    font-size: 1.3em;
+    border-radius: 3px;
+    padding: .2em .8em;
+    margin: 1em auto .4em;
+    outline-width: 0;
+    border: 1px solid darken(#494F60, 2%)
+  }
+}
+
+div#mainApp{
+  div.result{
+    border-color: $green;
+  }
+  &.forbidden{
+    div.result{
+      border-color: $red;
+    }
+    button.drink-one{
+      display: none;
+    }
+  }
+}
