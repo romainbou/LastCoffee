@@ -1,0 +1,18 @@
+{
+  "name": "angular-animate",
+  "version": "1.3.1-build.3430+sha.6502ab0",
+  "main": "./angular-animate.js",
+  "dependencies": {
+    "angular": "1.3.1-build.3430+sha.6502ab0"
+  },
+  "homepage": "https://github.com/angular/bower-angular-animate",
+  "_release": "1.3.1-build.3430+sha.6502ab0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.3.1-build.3430+sha.6502ab0",
+    "commit": "f9c009da8f0fb1544f0830361a8679a1763bf1cc"
+  },
+  "_source": "git://github.com/angular/bower-angular-animate.git",
+  "_target": "^1.2",
+  "_originalSource": "angular-animate"
+}
