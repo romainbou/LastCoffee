@@ -88,7 +88,7 @@ div#mainApp.forbidden span.drunk {
 div#mainApp.forbidden div.circle-item {
   border: 2px solid #fd6e6e; }
 
-div.result {
+footer.result {
   position: fixed;
   width: 500px;
   bottom: 0;
@@ -102,10 +102,10 @@ div.result {
   padding: 0.2em 1em;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px; }
-  div.result h2 {
+  footer.result h2 {
     text-align: center;
     margin-top: 6px; }
-  div.result button.drink-one {
+  footer.result button.drink-one {
     background-color: #778098;
     color: #ebecf0;
     text-align: center;
@@ -119,17 +119,17 @@ div.result {
     outline-width: 0;
     border: 1px solid #454a5a; }
   @media (max-width: 670px) {
-    div.result {
+    footer.result {
       width: 100%;
       border-radius: 0;
       border-left-width: 0px;
       border-right-width: 0px; } }
 
-div#mainApp div.result {
+div#mainApp footer.result {
   border-color: #36e2be; }
-div#mainApp.okayish div.result {
+div#mainApp.okayish footer.result {
   border-color: #ffac79; }
-div#mainApp.forbidden div.result {
+div#mainApp.forbidden footer.result {
   border-color: #fd6e6e; }
 div#mainApp.forbidden button.drink-one {
   display: none; }
