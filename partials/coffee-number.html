@@ -1,0 +1,11 @@
+<div class="circle">
+  <h3>{{ nbCoffee }} Coffee<br>already drunk</h3>
+  <p>
+    <span class="coffee0" ng-click="changeNbCoffee(0)">
+      <i class="fa fa-remove"></i>
+    </span>
+    <span ng-repeat="nb in getNumber(max) track by $index" ng-class="{drunk: nbCoffee >= ($index+1)}" ng-click="changeNbCoffee($index+1)">
+      <i class="fa fa-coffee"></i>
+    </span>
+  </p>
+</div>

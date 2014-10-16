@@ -23,37 +23,7 @@
     </header>
     
     <form class="questions">
-      <div class="circle-item big">
-        <div class="circle">
-          <h3>{{ nbCoffee }} Coffee<br>already drunk</h3>
-          <p>
-            <span class="coffee0" ng-click="changeNbCoffee(0)">
-              <i class="fa fa-remove"></i>
-            </span>
-            <span ng-repeat="nb in getNumber(max) track by $index" ng-class="{drunk: nbCoffee >= ($index+1)}" ng-click="changeNbCoffee($index+1)">
-              <i class="fa fa-coffee"></i>
-            </span>
-          </p>
-        </div>
-      </div>
-      
-      <div class="circle-item big">
-        <div class="circle">
-          <h3>last coffee time</h3>
-           <div class="form-group" ng-class="{'has-error': timepickerForm.time2.$invalid}">
-            <input type="text" class="form-control" size="5" ng-model="lastCoffeeTime" data-time-format="HH:mm" data-time-type="number" data-length="4" name="lastCoffeeTime" pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]" data-minute-step="{{ minuteStep }}" bs-timepicker>
-          </div>
-        </div>
-      </div>
-      
-      <div class="circle-item big">
-        <div class="circle">
-          <h3>bed time</h3>
-          <div class="form-group" ng-class="{'has-error': timepickerForm.time2.$invalid}">
-            <input type="text" class="form-control" size="5" ng-model="bedTime" data-time-format="HH:mm" data-time-type="number" data-length="4" data-minute-step="{{ minuteStep }}" name="bedTime" pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]" bs-timepicker>
-          </div>
-        </div>
-      </div>
+      <div class="circle-item" ng-repeat="t in templates" ng-include="t.url"></div>
     </form>
     
     <div class="result">

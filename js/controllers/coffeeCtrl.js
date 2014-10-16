@@ -18,7 +18,7 @@ lastCoffeeApp.controller('CoffeeCtrl', ['$scope', '$http', 'localStorageService'
     $scope.max = 9;
     $scope.state = "ok";
     $scope.minuteStep = 15;
-    
+    $scope.test = "test";
     //sync values with the LocalStorage
     $ls.bind($scope, 'lastCoffeeTime');
     $ls.bind($scope, 'bedTime');
@@ -35,6 +35,12 @@ lastCoffeeApp.controller('CoffeeCtrl', ['$scope', '$http', 'localStorageService'
     $scope.nbCoffee = $ls.get('nbCoffee') ||  0;
     $scope.lastCoffeeTime = $ls.get('lastCoffeeTime') ||  getCurrentTime();
     $scope.bedTime = $ls.get('bedTime') || 75600000;
+
+    $scope.templates =
+      [ { name: 'coffee-number', title:'coffee already drunk', model: 'nbCoffee', url: 'partials/coffee-number.html'},
+        { name: 'last-coffee-time', title:'last coffee time', model: "lastCoffeeTime", url: 'partials/time.html'},
+        { name: 'bed-time', title:'bed time', model: "bedTime", url: 'partials/time.html'}];
+
     
     $scope.changeNbCoffee = function(nb){
       $scope.nbCoffee = nb;
