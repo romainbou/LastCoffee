@@ -39,8 +39,8 @@
 
       $scope.questionTemplates =
         [ { name: 'coffee-number', title:'coffee already drunk', model: 'nbCoffee', url: 'partials/coffee-number.html'},
-          { name: 'last-coffee-time', title:'last coffee time', model: "lastCoffeeTime", url: 'partials/time.html'},
-          { name: 'bed-time', title:'bed time', model: "bedTime", url: 'partials/time.html'}];
+          { name: 'last-coffee-time', title:'last coffee taken at', model: "lastCoffeeTime", url: 'partials/time.html'},
+          { name: 'bedtime', title:'bedtime', model: "bedTime", url: 'partials/time.html'}];
 
       
       $scope.changeNbCoffee = function(nb){
@@ -66,6 +66,7 @@
             result = data[i];
             conditionCoffee = result.conditionCoffee; 
             conditionSleep = result.conditionSleep;
+            //Test if the conditions match with $scope.nbCoffee and stillAwakeTime :
             //conditionCoffee == [{"val":7, "ie" : "excl"}, null] => test if($scope.nbCoffee ∈  ]7,+∞[ )
             //conditionCoffee == [null, {"val":7, "ie" : "incl"}] => test if($scope.nbCoffee ∈  ]-∞,7] )
             if((conditionCoffee[0] === null || (conditionCoffee[0].ie === "incl" && $scope.nbCoffee >= conditionCoffee[0].val) || (conditionCoffee[0].ie === "excl" && $scope.nbCoffee > conditionCoffee[0].val))

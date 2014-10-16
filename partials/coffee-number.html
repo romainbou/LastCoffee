@@ -1,5 +1,5 @@
 <div class="circle">
-  <h3>{{ nbCoffee }} Coffee<br>already drunk</h3>
+  <h3>{{ nbCoffee }} Coffee<span ng-if="nbCoffee>1">s</span><br>already drunk</h3>
   <p>
     <span class="coffee0" ng-click="changeNbCoffee(0)">
       <i class="fa fa-remove"></i>

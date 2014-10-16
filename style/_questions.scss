@@ -39,6 +39,7 @@ form.questions{
         margin-bottom: $circle-size/10;
         text-transform: uppercase;
         font-size: 1.3em;
+        padding: 0 .9em;
         @media (max-width: $break-small) {
           margin-bottom: $little-circle-size/10;
           font-size: .9em;

@@ -18,14 +18,14 @@
     "conditionCoffee":[{"val":6, "ie" : "incl"}, {"val":7, "ie" : "incl"}],
     "conditionSleep":[{"val":6, "ie" : "excl"}, null],
     "state": "okayish",
-    "message": "Be careful, the benefits of coffee on your health decrease after the 6th cup."
+    "message": "Be careful, the benefits of coffee on your health decreases after the 6th cup."
   },
   {
     "title": "Okayish...",
     "conditionCoffee":[null, {"val":7, "ie" : "incl"}],
     "conditionSleep":[null, {"val":6, "ie" : "incl"}],
     "state": "okayish",
-    "message": "Be careful, you will sleep soon."
+    "message": "Be careful, your bedtime is close."
   },
   {
     "title": "Yes you can!",
