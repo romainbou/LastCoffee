@@ -1,4 +1,4 @@
-div.result{
+footer.result{
   position: fixed;
   width: 500px;
   bottom:0;
@@ -39,16 +39,16 @@ div.result{
 }
 
 div#mainApp{
-  div.result{
+  footer.result{
     border-color: $green;
   }
   &.okayish{
-    div.result{
+    footer.result{
       border-color: $orange;
     }
   }
   &.forbidden{
-    div.result{
+    footer.result{
       border-color: $red;
     }
     button.drink-one{

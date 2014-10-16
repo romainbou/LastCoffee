@@ -23,14 +23,14 @@
     </header>
     
     <form class="questions">
-      <div class="circle-item" ng-repeat="t in templates" ng-include="t.url"></div>
+      <div class="circle-item" ng-repeat="t in questionTemplates" ng-include="t.url"></div>
     </form>
     
-    <div class="result">
+    <footer class="result">
       <h2>{{getResult().title}}</h2>
       <p>{{getResult().message}}</p>
       <button class="drink-one" ng-click="drinkCoffee()">I drank</button>
-    </div>
+    </footer>
   
   </div>
 </body>

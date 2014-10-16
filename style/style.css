@@ -2,7 +2,7 @@ html, body {
   display: block;
   margin: 0;
   padding: 0;
-  background-color: #52596b;
+  background-color: #52596B;
   color: white;
   font-family: 'Open Sans', sans-serif;
   padding-bottom: 75px; }
@@ -35,7 +35,7 @@ form.questions {
     display: inline-table;
     vertical-align: middle;
     text-align: center;
-    background-color: #494f60;
+    background-color: #494F60;
     width: 260px;
     height: 260px;
     border-radius: 130px;
@@ -47,7 +47,7 @@ form.questions {
         border-radius: 72.5px;
         margin: 5.8px; } }
     form.questions div.circle-item:hover {
-      background-color: #494f60; }
+      background-color: #494F60; }
     form.questions div.circle-item .circle {
       display: table-cell;
       vertical-align: middle; }
@@ -76,19 +76,19 @@ form.questions {
           text-align: center; }
 
 div#mainApp span.drunk {
-  color: #36e2be; }
+  color: #36E2BE; }
 div#mainApp div.circle-item {
-  border: 2px solid #36e2be; }
+  border: 2px solid #36E2BE; }
 div#mainApp.okayish span.drunk {
-  color: #ffac79; }
+  color: #FFAC79; }
 div#mainApp.okayish div.circle-item {
-  border: 2px solid #ffac79; }
+  border: 2px solid #FFAC79; }
 div#mainApp.forbidden span.drunk {
-  color: #fd6e6e; }
+  color: #FD6E6E; }
 div#mainApp.forbidden div.circle-item {
-  border: 2px solid #fd6e6e; }
+  border: 2px solid #FD6E6E; }
 
-div.result {
+footer.result {
   position: fixed;
   width: 500px;
   bottom: 0;
@@ -102,10 +102,10 @@ div.result {
   padding: 0.2em 1em;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px; }
-  div.result h2 {
+  footer.result h2 {
     text-align: center;
     margin-top: 6px; }
-  div.result button.drink-one {
+  footer.result button.drink-one {
     background-color: #778098;
     color: #ebecf0;
     text-align: center;
@@ -119,17 +119,19 @@ div.result {
     outline-width: 0;
     border: 1px solid #454a5a; }
   @media (max-width: 670px) {
-    div.result {
+    footer.result {
       width: 100%;
       border-radius: 0;
       border-left-width: 0px;
       border-right-width: 0px; } }
 
-div#mainApp div.result {
-  border-color: #36e2be; }
-div#mainApp.okayish div.result {
-  border-color: #ffac79; }
-div#mainApp.forbidden div.result {
-  border-color: #fd6e6e; }
+div#mainApp footer.result {
+  border-color: #36E2BE; }
+div#mainApp.okayish footer.result {
+  border-color: #FFAC79; }
+div#mainApp.forbidden footer.result {
+  border-color: #FD6E6E; }
 div#mainApp.forbidden button.drink-one {
   display: none; }
+
+/*# sourceMappingURL=style.css.map */
