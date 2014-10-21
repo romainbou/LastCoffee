@@ -29,6 +29,15 @@ module.exports = function(grunt) {
         autoIndex: true,
         ext: "html",
         runInBackground: true
+      },
+      prod: {
+        root: './',
+        port: 8282,
+        host: "127.0.0.1",
+        showDir : true,
+        autoIndex: true,
+        ext: "html",
+        runInBackground: false
       }
     },
     watch: {
@@ -41,4 +50,5 @@ module.exports = function(grunt) {
 
   grunt.registerTask('validate', ['jshint']);
   grunt.registerTask('dev', ['sass','http-server:dev', 'watch']);
+  grunt.registerTask('start', ['http-server:prod']);
 };
