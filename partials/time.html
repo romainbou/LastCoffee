@@ -1,6 +1,6 @@
 <div class="circle">
   <h3>{{t.title}}</h3>
-   <div class="form-group" ng-class="{'has-error': timepickerForm.time2.$invalid}">
-    <input type="text" class="form-control" size="5" ng-model="$parent.$parent[t.model]" data-time-format="HH:mm" data-time-type="number" data-length="4" name="{{ t.name }}" pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]" data-minute-step="{{ minuteStep }}" bs-timepicker>
+   <div class="form-group">
+    <input type="time" class="form-control" size="5" ng-model="$parent.$parent[t.model]" data-time-format="HH:mm" name="{{ t.name }}">
   </div>
 </div>

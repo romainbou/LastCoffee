@@ -1,0 +1,30 @@
+{
+  "version": "0.1",
+  "name": "LastCoffee",
+  "description": "Tells you if can drink another coffee",
+  "launch_path": "/index.html",
+  "icons": {
+    "16": "/img/coffee.svg",
+    "48": "/img/coffee.svg",
+    "128": "/img/coffee.png"
+  },
+  "developer": {
+    "name": "Romain Bouyé",
+    "url": "http://romain.bouye.fr"
+  },
+  "locales": {
+    "fr": {
+      "description": "Indique si on peut encore boire du café",
+      "developer": {
+        "url": "http://romain.bouye.fr"
+      }
+    },
+    "en": {
+      "description": "Tells you if can drink another coffee",
+      "developer": {
+        "url": "http://romain.bouye.fr"
+      }
+    }
+  },
+  "default_locale": "en"
+}

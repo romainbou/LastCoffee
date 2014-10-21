@@ -10,28 +10,26 @@
   <link rel="stylesheet" href="bower_components/bootstrap-additions/dist/bootstrap-additions.min.css">
   <link rel="stylesheet" type="text/css" href="style/style.css">
   <script src="bower_components/angular/angular.js"></script>
-  <script src="bower_components/angular-strap/dist/angular-strap.min.js"></script>
-  <script src="bower_components/angular-strap/dist/angular-strap.tpl.min.js"></script>
   <script src="bower_components/angular-local-storage/dist/angular-local-storage.min.js"></script>
   <script src="js/controllers/coffeeCtrl.js"></script>
 </head>
 <body ng-app="lastCoffeeApp">
   <div id="mainApp" ng-controller="CoffeeCtrl" class="{{state}}">
-    
+
     <header class="title">
       <h1>Can I drink a coffee?</h1>
     </header>
-    
+
     <form class="questions">
       <div class="circle-item" ng-repeat="t in questionTemplates" ng-include="t.url"></div>
     </form>
-    
+
     <footer class="result">
       <h2>{{getResult().title}}</h2>
       <p>{{getResult().message}}</p>
       <button class="drink-one" ng-click="drinkCoffee()">One more drunk</button>
     </footer>
-  
+
   </div>
 </body>
 </html>

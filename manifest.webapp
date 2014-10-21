@@ -4,25 +4,25 @@
   "description": "Tells you if can drink another coffee",
   "launch_path": "/index.html",
   "icons": {
-    "16": "/img/coffee.svg",
-    "48": "/img/coffee.svg",
-    "128": "/img/coffee.svg"
+    "16": "/img/coffee-16.png",
+    "48": "/img/coffee-48.png",
+    "128": "/img/coffee.png"
   },
   "developer": {
     "name": "Romain Bouyé",
-    "url": "/index.html"
+    "url": "http://romain.bouye.fr"
   },
   "locales": {
     "fr": {
       "description": "Indique si on peut encore boire du café",
       "developer": {
-        "url": "/index.html"
+        "url": "http://romain.bouye.fr"
       }
     },
     "en": {
       "description": "Tells you if can drink another coffee",
       "developer": {
-        "url": "/index.html"
+        "url": "http://romain.bouye.fr"
       }
     }
   },
